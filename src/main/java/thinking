@@ -55,4 +55,7 @@ Properties prop = new Properties();
             // save properties to project root folder
             prop.store(output, null);
 
+Model 主要提供对业务的操作和业务的数据
+View 显示数据
+Controller 控制器主要用于接收用户的请求， 然后去调用Model 再根据返回的结果决定跳转到哪个页面
 

@@ -1,5 +1,7 @@
 package view;
 
+import Ser.UserService;
+import domain.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -7,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -72,24 +75,17 @@ public class ManageUser extends HttpServlet {
             int pageCount = (rowCount - 1) / pageSize + 1;
             //pageCount 表示一共有多少页。该变量是计算出来的。
 
-            //3创建PreparedStatement
-            //请思考，如果给出的条件是 pageNow = 2, pageSize =3 sql语句应该如何写？
-            ps = ct.prepareStatement("select * from users limit ?,?");
-
-            ps.setInt(1, (pageNow - 1) * 3);
-            ps.setInt(2, pageSize);
-
-            //4执行操作
-            rs = ps.executeQuery();
+            UserService userService = new UserService();
+            ArrayList<User> al = userService.getUserByPage(pageNow,pageSize);
             //根据结果处理
             pw.println("<table border = 1 width = 500px bordercolor = green cellspacing = 0>");
             pw.println("<tr><th>id</th><th>Username</th><th>Email</th><th>Grade</th></tr>");
-            while (rs.next()) {
+            for (User user1 : al) {
                 //循环显示所有用户信息
-                pw.println("<tr><td>" + rs.getBigDecimal(1)
-                    + "</td><td>" + rs.getString(2)
-                    + "</td><td>" + rs.getString(3)
-                    + "</td><td>" + rs.getBigDecimal(4)
+                pw.println("<tr><td>" + user1.getId()
+                    + "</td><td>" + user1.getName()
+                    + "</td><td>" + user1.getEmail()
+                    + "</td><td>" + user1.getGrade()
                     + "</td></tr><br/>");
             }
             pw.println("</table>");

@@ -51,6 +51,7 @@ public class SqlHelper {
             //JAVAEE访问文件 需要使用类加载器
 //            fis = ClassLoader.getSystemResourceAsStream("/Users/cuiyunqi/Desktop/HSP/UserManager2/dbinfo2.properties");
 
+
             pp.load(fis);
             url = pp.getProperty("url");
             username = pp.getProperty("user");
