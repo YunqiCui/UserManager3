@@ -20,7 +20,8 @@ public class ManageUser extends HttpServlet {
         pw.println("function goToPage(){"
             + "var pageNow = document.getElementById('pageto').value;"
             + "window.open('/UserManager2/manageuser?pageNow='+pageNow,'_self');"
-            + "}");
+            + "}"
+            + "function confirmOper(){ return window.confirm('Sure you want to delete this User?');}");
         pw.println("</script>");
         res.setContentType("text/html");
 
@@ -56,7 +57,7 @@ public class ManageUser extends HttpServlet {
                     + "</td><td>" + user1.getName()
                     + "</td><td>" + user1.getEmail()
                     + "</td><td>" + user1.getGrade()
-                    + "</td><td><a href = '/UserManager2/deleteuserservlet?id="+ user1.getId()+"'>Delete User</a>"
+                    + "</td><td><a  onClick = 'return confirmOper();' href = '/UserManager2/deleteuserservlet?id="+ user1.getId()+"'>Delete User</a>"
                     + "</td><td><a href = '#'>Edit User</a>"
                     + "</td></tr><br/>");
             }
