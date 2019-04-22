@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MainFrame extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res)
-        throws ServletException, IOException {
+        throws IOException {
         PrintWriter pw = res.getWriter();
         res.setContentType("text/html;charset = utf-8");
 

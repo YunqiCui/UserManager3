@@ -23,8 +23,20 @@
         <servlet-name>ManageUser</servlet-name>
         <servlet-class>view.ManageUser</servlet-class>
     </servlet>
+  <servlet>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <servlet-class>controller.DeleteUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteOk</servlet-name>
+    <servlet-class>view.DeleteOk</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteFailed</servlet-name>
+    <servlet-class>view.DeleteFailed</servlet-class>
+  </servlet>
 
-    <servlet-mapping>
+  <servlet-mapping>
         <servlet-name>MainFrame</servlet-name>
         <url-pattern>/mainframe</url-pattern>
     </servlet-mapping>
@@ -41,6 +53,18 @@
   <servlet-mapping>
     <servlet-name>ManageUser</servlet-name>
     <url-pattern>/manageuser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <url-pattern>/deleteuserservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteOk</servlet-name>
+    <url-pattern>/deleteok</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteFailed</servlet-name>
+    <url-pattern>/deletefailed</url-pattern>
   </servlet-mapping>
 
 </web-app>

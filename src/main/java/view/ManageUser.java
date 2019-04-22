@@ -4,11 +4,6 @@ import Ser.UserService;
 import domain.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ManageUser extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res)
-        throws ServletException, IOException {
+        throws IOException {
 
         PrintWriter pw = res.getWriter();
         pw.println("<script type = 'text/javascript'>");
@@ -34,19 +29,11 @@ public class ManageUser extends HttpServlet {
             + "<a href = '#'>Safe Quit</a><hr/>");
         pw.println("<h1>User Manager</h1>");
 
-        //从数据库中取出用户信息，并且显示
-        Connection ct = null;
-        ResultSet rs = null;
-        PreparedStatement ps = null;
-        String user = "root";
-        String databasepassword = "";
-        String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/UMS2";
-
         //分页功能
         //定义分页需要的变量
 
         int pageNow = 1;//pageNow 表示第几页。该变量是由用户来决定的，因此它是变化的。
+        int pageCount = 0;
 
         //接收用户的pageNow
         String sPageNow = req.getParameter("pageNow");
@@ -55,37 +42,22 @@ public class ManageUser extends HttpServlet {
         }
 
         int pageSize = 3;//pageSize 每夜显示几条记录。一般来说是由程序指定的。也可以由用户定制。
-        int rowCount;//rowCount 共有多少条记录。该变量是查询数据库决定的。
-        //计算pageCount
-
-        //todo >>显示后十页 <<显示前十页
-        //todo pageNow 过大的问题
 
         try {
-            //1加载驱动
-            Class.forName(driver);
-            //2得到链接
-            ct = DriverManager.getConnection(url, user, databasepassword);
-
-            //算出共有多少页
-            ps = ct.prepareStatement("select count(*) from users");
-            rs = ps.executeQuery();
-            rs.next();
-            rowCount = rs.getInt(1);
-            int pageCount = (rowCount - 1) / pageSize + 1;
-            //pageCount 表示一共有多少页。该变量是计算出来的。
-
             UserService userService = new UserService();
+            pageCount = userService.getPageCount(pageSize);
             ArrayList<User> al = userService.getUserByPage(pageNow,pageSize);
             //根据结果处理
             pw.println("<table border = 1 width = 500px bordercolor = green cellspacing = 0>");
-            pw.println("<tr><th>id</th><th>Username</th><th>Email</th><th>Grade</th></tr>");
+            pw.println("<tr><th>id</th><th>Username</th><th>Email</th><th>Grade</th><th>Delete User</th><th>Edit User</th></tr>");
             for (User user1 : al) {
                 //循环显示所有用户信息
                 pw.println("<tr><td>" + user1.getId()
                     + "</td><td>" + user1.getName()
                     + "</td><td>" + user1.getEmail()
                     + "</td><td>" + user1.getGrade()
+                    + "</td><td><a href = '/UserManager2/deleteuserservlet?id="+ user1.getId()+"'>Delete User</a>"
+                    + "</td><td><a href = '#'>Edit User</a>"
                     + "</td></tr><br/>");
             }
             pw.println("</table>");
@@ -115,35 +87,6 @@ public class ManageUser extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            //关闭资源 最后使用的先关闭
-            if (rs != null) {
-                try {
-                    rs.close();
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                rs = null;
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                ps = null;
-            }
-            if (ct != null) {
-                try {
-                    ct.close();
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                ct = null;
-            }
         }
     }
 

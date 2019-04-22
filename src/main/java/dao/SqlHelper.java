@@ -99,9 +99,24 @@ public class SqlHelper {
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        finally {
-//            close(rs, ps, con);
-//        }
+        return rs;
+    }
+    //Sql
+    //普通select语句
+    public static ResultSet queryExecute(String sql, int[] params) {
+        try {
+            con = getConnection();
+            ps = con.prepareStatement(sql);
+
+            if (params != null) {
+                for (int i = 0; i < params.length; i++) {
+                    ps.setInt(i + 1, params[i]);
+                }
+            }
+            rs = ps.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return rs;
     }
 
@@ -135,32 +150,28 @@ public class SqlHelper {
             }
 
             throw new RuntimeException(e.getMessage());
-        } finally {
-            close(rs, ps, con);
         }
     }
 
-    public static boolean executeUpdate(String sql, String[] params) {
-        boolean b = true;
+    public static void executeUpdate(String sql, String[] params) {
+
         try {
             con = getConnection();
             ps = con.prepareStatement(sql);
+            if(params!=null){
             for (int i = 0; i < params.length; i++) {
                 ps.setString(i + 1, params[i]);
-            }
-            if (ps.executeUpdate() != 1) {
-                b = false;
-            }
+            }}
+            ps.executeUpdate();
         } catch (Exception e) {
-            b = false;
+
             e.printStackTrace();
-            // TODO: handle exception
+            // handle exception
+            //运行时异常是可以捕获或者不捕获的
+            throw new RuntimeException(e.getMessage());
         } finally {
             close(rs, ps, con);
         }
-
-        return b;
-
     }
 
     public static void close(ResultSet rs, Statement ps, Connection con) {

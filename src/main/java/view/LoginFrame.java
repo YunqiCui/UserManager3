@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 public class LoginFrame extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res)
-        throws ServletException, IOException {
+        throws IOException {
 
         PrintWriter pw = res.getWriter();
         res.setCharacterEncoding("UTF-8");
