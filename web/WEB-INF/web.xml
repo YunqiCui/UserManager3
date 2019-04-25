@@ -24,8 +24,8 @@
         <servlet-class>view.ManageUser</servlet-class>
     </servlet>
   <servlet>
-    <servlet-name>DeleteUserServlet</servlet-name>
-    <servlet-class>controller.DeleteUserServlet</servlet-class>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>controller.UserServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>DeleteOk</servlet-name>
@@ -55,8 +55,8 @@
     <url-pattern>/manageuser</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>DeleteUserServlet</servlet-name>
-    <url-pattern>/deleteuserservlet</url-pattern>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/userservlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DeleteOk</servlet-name>

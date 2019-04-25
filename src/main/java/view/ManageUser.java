@@ -57,7 +57,7 @@ public class ManageUser extends HttpServlet {
                     + "</td><td>" + user1.getName()
                     + "</td><td>" + user1.getEmail()
                     + "</td><td>" + user1.getGrade()
-                    + "</td><td><a  onClick = 'return confirmOper();' href = '/UserManager2/deleteuserservlet?id="+ user1.getId()+"'>Delete User</a>"
+                    + "</td><td><a  onClick = 'return confirmOper();' href = '/UserManager2/userservlet?type=del&id="+ user1.getId()+"'>Delete User</a>"
                     + "</td><td><a href = '#'>Edit User</a>"
                     + "</td></tr><br/>");
             }
