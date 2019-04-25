@@ -8,6 +8,17 @@ public class User {
     private int grade;
     private String email;
 
+    public User(int id, String name, String email, int grade, String pwd) {
+        this.name = name;
+        this.pwd = pwd;
+        this.id = id;
+        this.grade = grade;
+        this.email = email;
+    }
+
+    public User() {
+    }
+
     public String getName() {
         return name;
     }

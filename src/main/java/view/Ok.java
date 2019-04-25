@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DeleteOk extends HttpServlet {
+public class Ok extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res)
         throws ServletException, IOException {
         res.setContentType("text/html");
         PrintWriter pw = res.getWriter();
-        pw.println("Sucessfully deleted user!<br/>");
+        pw.println("Congratulations! "+req.getAttribute("info").toString()+"<br/>");
         pw.println("<a href='/UserManager2/manageuser'>Back to User List</a>");
 
     }

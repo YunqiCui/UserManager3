@@ -28,12 +28,20 @@
     <servlet-class>controller.UserServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>DeleteOk</servlet-name>
-    <servlet-class>view.DeleteOk</servlet-class>
+    <servlet-name>Ok</servlet-name>
+    <servlet-class>view.Ok</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>DeleteFailed</servlet-name>
-    <servlet-class>view.DeleteFailed</servlet-class>
+    <servlet-name>Error</servlet-name>
+    <servlet-class>view.Error</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateUser</servlet-name>
+    <servlet-class>view.UpdateUser</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddUserView</servlet-name>
+    <servlet-class>view.AddUserView</servlet-class>
   </servlet>
 
   <servlet-mapping>
@@ -59,12 +67,20 @@
     <url-pattern>/userservlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>DeleteOk</servlet-name>
-    <url-pattern>/deleteok</url-pattern>
+    <servlet-name>Ok</servlet-name>
+    <url-pattern>/ok</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>DeleteFailed</servlet-name>
-    <url-pattern>/deletefailed</url-pattern>
+    <servlet-name>Error</servlet-name>
+    <url-pattern>/error</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateUser</servlet-name>
+    <url-pattern>/updateuser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddUserView</servlet-name>
+    <url-pattern>/adduserview</url-pattern>
   </servlet-mapping>
 
 </web-app>

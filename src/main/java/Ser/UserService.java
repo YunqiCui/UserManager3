@@ -52,28 +52,10 @@ public class UserService {
     //好处1 ArrayList 封装 User 更符合面向对象的编程方式
     //2 我们通过把ResultSet记录放入每一个User对象中去，再放入ArrayList中去，就可以及时的关闭数据库资源
 
-    //删除用户
-
-    public boolean deleteUser(String id){
-
-        boolean b = true;
-        String sql = "delete from users where id = ?";
-        String []parameters = {id};
-        try{
-            SqlHelper.executeUpdate(sql,parameters);
-        }catch (Exception e){
-            e.printStackTrace();
-            b=false;
-        }
-        return b;
-
-    }
-
     public ArrayList<User> getUserByPage(int pageNow, int pageSize){
 
         ArrayList<User> userlist = new ArrayList<User>();
 
-        //TODO sql Syntax error
         String sql = "select * from users limit ?,?";
         int []parameters ={(pageNow - 1) * 3,pageSize};
 
@@ -97,5 +79,78 @@ public class UserService {
         }
         return userlist;
     }
+
+    //删除用户
+
+    public boolean deleteUser(String id){
+
+        boolean b = true;
+        String sql = "delete from users where id = ?";
+        String []parameters = {id};
+        try{
+            SqlHelper.executeUpdate(sql,parameters);
+        }catch (Exception e){
+            e.printStackTrace();
+            b=false;
+        }
+        return b;
+
+    }
+
+    //通过id获取用户数据 获得用户的所有数据 以便修改
+    public User getUserById (String id){
+        User user = new User();
+        String sql = "select * from users where id = ?";
+        String []parameters = {id};
+        ResultSet rs = SqlHelper.queryExecute(sql,parameters);
+        try {
+            if (rs.next()){
+                user.setId(rs.getInt(1));
+                user.setName(rs.getString(2));
+                user.setEmail(rs.getString(3));
+                user.setGrade(rs.getInt(4));
+                user.setPwd(rs.getString(5));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            SqlHelper.close(rs,SqlHelper.getPs(),SqlHelper.getCon());
+        }
+        return user;
+    }
+
+    //修改用户
+
+    public boolean updateUser (User user){
+        boolean b = true;
+        String sql = "update users set username = ?, email = ?, grade = ?, password = ? where id =?";
+        String []parameters = {user.getName(),user.getEmail(),user.getGrade()+"",user.getPwd(),user.getId()+""};
+
+        try{
+            SqlHelper.executeUpdate(sql,parameters);
+        }catch (Exception e){
+            b = false;
+            e.printStackTrace();
+        }
+        return b;
+    }
+
+    //添加用户
+
+    public boolean addUser(User user){
+        boolean b = true;
+        String sql = "insert into users (username,email,grade,password) values (?,?,?,?)";
+        String []parameters = {user.getName(),user.getEmail(),user.getGrade()+"",user.getPwd()};
+
+        try{
+            SqlHelper.executeUpdate(sql,parameters);
+        }catch (Exception e){
+            b = false;
+            e.printStackTrace();
+        }
+        return b;
+    }
+
+    //todo 查询用户
 }
 
