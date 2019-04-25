@@ -11,7 +11,7 @@ public class DeleteUserServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res)
         throws ServletException, IOException {
-
+ 
         String id = req.getParameter("id");
 
         //调用UserService 来删除用户
