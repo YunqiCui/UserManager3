@@ -121,14 +121,15 @@ public class UserService {
 
     //修改用户
 
-    public boolean updateUser (User user){
+    public boolean updateUser (User user) {
         boolean b = true;
         String sql = "update users set username = ?, email = ?, grade = ?, password = ? where id =?";
-        String []parameters = {user.getName(),user.getEmail(),user.getGrade()+"",user.getPwd(),user.getId()+""};
+        String[] parameters = {user.getName(), user.getEmail(), user.getGrade() + "", user.getPwd(),
+            user.getId() + ""};
 
-        try{
-            SqlHelper.executeUpdate(sql,parameters);
-        }catch (Exception e){
+        try {
+            SqlHelper.executeUpdate(sql, parameters);
+        } catch (Exception e) {
             b = false;
             e.printStackTrace();
         }
