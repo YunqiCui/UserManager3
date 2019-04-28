@@ -21,7 +21,7 @@ public class UpdateUser extends HttpServlet {
             + "<a href = '#'>Back to Main</a>&nbsp;&nbsp;&nbsp;"
             + "<a href = '#'>Safe Quit</a><hr/>");
         pw.println("<h1>Edit User</h1>");
-        pw.println("<form action='/UserManager2/userservlet?type=update' method= 'post'>");
+        pw.println("<form action='/UserManager3/userservlet?type=update' method= 'post'>");
         pw.println("<table border = 1 width = 200px bordercolor = green cellspacing = 0>");
         pw.println("<tr><td>id</td><td><input type = 'text' name = 'id' readonly value = '"+user.getId()+"'/></td></tr>");
         pw.println("<tr><td>Name</td><td><input type = 'text' name = 'username' value = '"+user.getName()+"'/></td></tr>");

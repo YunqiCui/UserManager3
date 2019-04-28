@@ -19,7 +19,7 @@ public class ManageUser extends HttpServlet {
         pw.println("<script type = 'text/javascript'>");
         pw.println("function goToPage(){"
             + "var pageNow = document.getElementById('pageto').value;"
-            + "window.open('/UserManager2/manageuser?pageNow='+pageNow,'_self');"
+            + "window.open('/UserManager3/manageuser?pageNow='+pageNow,'_self');"
             + "}"
             + "function confirmOper(){ return window.confirm('Sure you want to delete this User?');}");
         pw.println("</script>");
@@ -57,24 +57,24 @@ public class ManageUser extends HttpServlet {
                     + "</td><td>" + user1.getName()
                     + "</td><td>" + user1.getEmail()
                     + "</td><td>" + user1.getGrade()
-                    + "</td><td><a  onClick = 'return confirmOper();' href = '/UserManager2/userservlet?type=del&id="+ user1.getId()+"'>Delete User</a>"
-                    + "</td><td><a href = '/UserManager2/userservlet?type=gotoupdate&id="+ user1.getId()+"'>Edit User</a>"
+                    + "</td><td><a  onClick = 'return confirmOper();' href = '/UserManager3/userservlet?type=del&id="+ user1.getId()+"'>Delete User</a>"
+                    + "</td><td><a href = '/UserManager3/userservlet?type=gotoupdate&id="+ user1.getId()+"'>Edit User</a>"
                     + "</td></tr><br/>");
             }
             pw.println("</table>");
 
             //显示上一页
             if (pageNow != 1) {
-                pw.println("<a href ='/UserManager2/manageuser?pageNow=" + (pageNow - 1) + "'>Back</a>");
+                pw.println("<a href ='/UserManager3/manageuser?pageNow=" + (pageNow - 1) + "'>Back</a>");
             }
 
             //显示分页超链接
             for (int i = 1; i <= pageCount; i++) {
-                pw.println("<a href ='/UserManager2/manageuser?pageNow=" + i + "'><" + i + "></a>");
+                pw.println("<a href ='/UserManager3/manageuser?pageNow=" + i + "'><" + i + "></a>");
             }
             //显示下一页
             if (pageNow != pageCount) {
-                pw.println("<a href ='/UserManager2/manageuser?pageNow=" + (pageNow + 1) + "'>Next</a>");
+                pw.println("<a href ='/UserManager3/manageuser?pageNow=" + (pageNow + 1) + "'>Next</a>");
             }
 
             //显示当前页

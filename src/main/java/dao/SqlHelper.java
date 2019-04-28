@@ -47,9 +47,9 @@ public class SqlHelper {
             //访问配置文件dbinfo
             pp = new Properties();
             fis = new FileInputStream(
-                "/Users/cuiyunqi/Desktop/HSP/UserManager2/src/main/java/dbinfo2.properties");//搞清楚tomcat的主目录的问题
+                "/Users/cuiyunqi/Desktop/HSP/UserManager3/src/main/java/dbinfo2.properties");//搞清楚tomcat的主目录的问题
             //JAVAEE访问文件 需要使用类加载器
-//            fis = ClassLoader.getSystemResourceAsStream("/Users/cuiyunqi/Desktop/HSP/UserManager2/dbinfo2.properties");
+//            fis = ClassLoader.getSystemResourceAsStream("/Users/cuiyunqi/Desktop/HSP/UserManager3/dbinfo2.properties");
 
 
             pp.load(fis);

@@ -19,8 +19,8 @@ public class MainFrame extends HttpServlet {
             + "<a href = 'loginframe'>&nbsp;&nbsp;&nbsp;BackLogin</a>"
             + "<a href = 'loginframe'>&nbsp;&nbsp;&nbsp;SafeQuit</a><hr/>");
         pw.println("<h3>Please select...</h3></br>");
-        pw.println("<a href='/UserManager2/manageuser'>Manage User</a></br>");
-        pw.println("<a href='/UserManager2/userservlet?type=gotoadduser'>Add User</a></br>");
+        pw.println("<a href='/UserManager3/manageuser'>Manage User</a></br>");
+        pw.println("<a href='/UserManager3/userservlet?type=gotoadduser'>Add User</a></br>");
         pw.println("<a href='#'>Check User</a></br>");
         pw.println("<a href='#'>Quit System</a></br>");
         pw.println("<hr/><img src = 'imgs/welcome.jpg'/>");

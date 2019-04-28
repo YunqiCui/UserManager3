@@ -14,7 +14,7 @@ public class Error extends HttpServlet {
         res.setContentType("text/html");
         PrintWriter pw = res.getWriter();
         pw.println("Sorry! "+req.getAttribute("info").toString()+"<br/>");
-        pw.println("<a href='/UserManager2/manageuser'>Back to User List</a>");
+        pw.println("<a href='/UserManager3/manageuser'>Back to User List</a>");
     }
 
     public void doGet(HttpServletRequest req, HttpServletResponse res)
