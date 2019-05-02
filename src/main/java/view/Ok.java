@@ -14,7 +14,7 @@ public class Ok extends HttpServlet {
         res.setContentType("text/html");
         PrintWriter pw = res.getWriter();
         pw.println("Congratulations! "+req.getAttribute("info").toString()+"<br/>");
-        pw.println("<a href='/UserManager3/manageuser'>Back to User List</a>");
+        pw.println("<a style='text-decoration: none' href='/UserManager3/manageuser'>Back to User List</a>");
 
     }
 

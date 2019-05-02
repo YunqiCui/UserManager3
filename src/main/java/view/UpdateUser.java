@@ -18,8 +18,8 @@ public class UpdateUser extends HttpServlet {
         //获取从控制器传递的User 对象
        User user =  (User)req.getAttribute("userinfo");
         pw.println("<img src = 'imgs/hello.jpg'/>&nbsp;&nbsp;&nbsp;"
-            + "<a href = '#'>Back to Main</a>&nbsp;&nbsp;&nbsp;"
-            + "<a href = '#'>Safe Quit</a><hr/>");
+            + "<a style='text-decoration: none' href = '#'>Back to Main</a>&nbsp;&nbsp;&nbsp;"
+            + "<a style='text-decoration: none' href = '#'>Safe Quit</a><hr/>");
         pw.println("<h1>Edit User</h1>");
         pw.println("<form action='/UserManager3/userservlet?type=update' method= 'post'>");
         pw.println("<table border = 1 width = 200px bordercolor = green cellspacing = 0>");

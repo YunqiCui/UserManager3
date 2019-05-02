@@ -14,15 +14,18 @@ public class MainFrame extends HttpServlet {
         PrintWriter pw = res.getWriter();
         res.setContentType("text/html;charset = utf-8");
 
+        //接收用户id
+        String id = req.getParameter("id");
+
         //输出登陆界面
-        pw.println("<img src = 'imgs/hello.jpg'/> Welcome!!"
-            + "<a href = 'loginframe'>&nbsp;&nbsp;&nbsp;BackLogin</a>"
-            + "<a href = 'loginframe'>&nbsp;&nbsp;&nbsp;SafeQuit</a><hr/>");
+        pw.println("<img src = 'imgs/hello.jpg'/> Welcome "+id+"!!"
+            + "<a style='text-decoration: none' href = 'loginframe'>&nbsp;&nbsp;&nbsp;&nbsp;BackLogin</a>"
+            + "<a style='text-decoration: none' href = 'loginframe'>&nbsp;&nbsp;&nbsp;&nbsp;SafeQuit</a><hr/>");
         pw.println("<h3>Please select...</h3></br>");
-        pw.println("<a href='/UserManager3/manageuser'>Manage User</a></br>");
-        pw.println("<a href='/UserManager3/userservlet?type=gotoadduser'>Add User</a></br>");
-        pw.println("<a href='#'>Check User</a></br>");
-        pw.println("<a href='#'>Quit System</a></br>");
+        pw.println("<a style='text-decoration: none' href='/UserManager3/manageuser'>Manage User</a></br>");
+        pw.println("<a style='text-decoration: none' href='/UserManager3/userservlet?type=gotoadduser'>Add User</a></br>");
+        pw.println("<a style='text-decoration: none' href='#'>Check User</a></br>");
+        pw.println("<a style='text-decoration: none' href='#'>Quit System</a></br>");
         pw.println("<hr/><img src = 'imgs/welcome.jpg'/>");
 
     }

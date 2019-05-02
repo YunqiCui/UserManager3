@@ -11,7 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  <a href='/UserManager/manageuser'>Back to User List</a>
+  <a style='text-decoration: none' href='/UserManager/manageuser'>Back to User List</a>
   <a href=""></a>
   $END$
   </body>

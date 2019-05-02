@@ -26,8 +26,8 @@ public class ManageUser extends HttpServlet {
         res.setContentType("text/html");
 
         pw.println("<img src = 'imgs/hello.jpg'/>&nbsp;&nbsp;&nbsp;Welcome!!&nbsp;&nbsp;&nbsp;"
-            + "<a href = '#'>Back to Main</a>&nbsp;&nbsp;&nbsp;"
-            + "<a href = '#'>Safe Quit</a><hr/>");
+            + "<a style='text-decoration: none' href = '#'>Back to Main</a>&nbsp;&nbsp;&nbsp;"
+            + "<a style='text-decoration: none' href = '#'>Safe Quit</a><hr/>");
         pw.println("<h1>User Manager</h1>");
 
         //分页功能

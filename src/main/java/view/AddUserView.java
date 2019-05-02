@@ -15,8 +15,8 @@ public class AddUserView extends HttpServlet {
         PrintWriter pw = res.getWriter();
 
         pw.println("<img src = 'imgs/hello.jpg'/>&nbsp;&nbsp;&nbsp;"
-            + "<a href = '#'>Back to Main</a>&nbsp;&nbsp;&nbsp;"
-            + "<a href = '#'>Safe Quit</a><hr/>");
+            + "<a style='text-decoration: none' href = '#'>Back to Main</a>&nbsp;&nbsp;&nbsp;"
+            + "<a style='text-decoration: none' href = '#'>Safe Quit</a><hr/>");
         pw.println("<h1>Add User</h1>");
         pw.println("<form action='/UserManager3/userservlet?type=add' method= 'post'>");
         pw.println("<table border = 1 width = 250px bordercolor = green cellspacing = 0>");

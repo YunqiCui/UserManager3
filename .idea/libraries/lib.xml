@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file:///Library/tomcat/lib" />
+      <root url="file:///Library/glassfish5/mq/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file:///Library/tomcat/lib" recursive="false" />
+    <jarDirectory url="file:///Library/glassfish5/mq/lib" recursive="false" />
   </library>
 </component>
