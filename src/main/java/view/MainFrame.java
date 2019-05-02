@@ -16,9 +16,11 @@ public class MainFrame extends HttpServlet {
 
         //接收用户id
         String id = req.getParameter("id");
+        //接收用户的logintime
+        String logintime = req.getParameter("login");
 
         //输出登陆界面
-        pw.println("<img src = 'imgs/hello.jpg'/> Welcome "+id+"!!"
+        pw.println("<img src = 'imgs/hello.jpg'/> Welcome "+id+"!!"+logintime+""
             + "<a style='text-decoration: none' href = 'loginframe'>&nbsp;&nbsp;&nbsp;&nbsp;BackLogin</a>"
             + "<a style='text-decoration: none' href = 'loginframe'>&nbsp;&nbsp;&nbsp;&nbsp;SafeQuit</a><hr/>");
         pw.println("<h3>Please select...</h3></br>");
@@ -27,7 +29,6 @@ public class MainFrame extends HttpServlet {
         pw.println("<a style='text-decoration: none' href='#'>Check User</a></br>");
         pw.println("<a style='text-decoration: none' href='#'>Quit System</a></br>");
         pw.println("<hr/><img src = 'imgs/welcome.jpg'/>");
-
     }
 
     public void doGet(HttpServletRequest req, HttpServletResponse res)
